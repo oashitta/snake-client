@@ -13,6 +13,12 @@ const connect = function () {
   conn.on("connect", (client) => {
     console.log("Successfully connected to game server");
     conn.write("Mot");
+    // conn.write("Move: up");
+    // conn.write("Move: left");
+    // conn.write("Move: down");
+    // conn.write("Move: right");
+  
+    
   });
 
   // interpret incominglishe data as text
@@ -22,3 +28,26 @@ const connect = function () {
 };
 
 module.exports = connect
+
+
+
+
+
+
+
+
+    // setInterval(() => {
+    //   conn.write("Move: up");
+    // }, 500)
+
+    // setInterval(() => {
+    //   conn.write("Move: right");
+    // }, 600)
+
+    // setTimeout(() => {
+    //   conn.write("Move: up");
+    // }, 500)
+
+    // setTimeout(() => {
+    //   conn.write("Move: right");
+    // }, 500)
