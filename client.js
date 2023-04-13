@@ -14,10 +14,7 @@ const connect = function () {
   conn.on("connect", () => {
     console.log("Successfully connected to game server");
     conn.write("Mot");
-    // conn.write("Move: up");
-    // conn.write("Move: left");
-    // conn.write("Move: down");
-    // conn.write("Move: right");  
+
   });
 
   // interpret incoming data as text
@@ -26,7 +23,7 @@ const connect = function () {
   return conn;
 };
 
-module.exports = connect
+module.exports = connect;
 
 
 
