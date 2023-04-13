@@ -1,8 +1,8 @@
-// const connect = require("./client");
+const { moveKeys, msgs } = require("./constants");
 
 let connection;
 
-const setupInput = function (conn) {
+const setupInput = (conn) => {
   connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
@@ -17,31 +17,22 @@ const setupInput = function (conn) {
 };
 
 const handleUserInput = function (key) {
+
+// To exit the game
  if (key === '\u0003') {
   process.exit(); 
  }
 
- if (key === 'w') {
-  connection.write("Move: up");
- }
- if (key === 'a') {
-  connection.write("Move: left");
- }
- if (key === 's') {
-  connection.write("Move: down");
- }
- if (key === 'd') {
-  connection.write("Move: right");
- }
- if (key === 'h') {
-  connection.write("Say: Hey Peeps!");
- }
- if (key === 'g') {
-  connection.write("Say: game on!");
- }
- if (key === 't') {
-  connection.write("Say: gotcha!");
- }
+//  to move around - WASD
+ if (moveKeys[key]) {
+  connection.write (moveKeys[key])
+};
+
+// to make comments
+if(msgs[key]){
+  connection.write(msgs[key])
+}
+
 
 };
 
