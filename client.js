@@ -1,5 +1,6 @@
 const net = require("net");
 
+// establishes a connection with the game server
 const connect = function () {
   const conn = net.createConnection({
     host: '165.227.47.243',
@@ -10,18 +11,16 @@ const connect = function () {
     console.log("Note from Server: ", data);
   });
 
-  conn.on("connect", (client) => {
+  conn.on("connect", () => {
     console.log("Successfully connected to game server");
     conn.write("Mot");
     // conn.write("Move: up");
     // conn.write("Move: left");
     // conn.write("Move: down");
-    // conn.write("Move: right");
-  
-    
+    // conn.write("Move: right");  
   });
 
-  // interpret incominglishe data as text
+  // interpret incoming data as text
   conn.setEncoding("utf8");
 
   return conn;
